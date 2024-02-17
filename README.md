@@ -18,6 +18,21 @@ does not provide multiple blocks by default. And I started repeating myself. Thi
 5. Develop (Run local server and watch changes)
 6. Update scripts
 
+```
+ "scripts": {
+    "devserver": "npm-run-all --parallel start server",
+    "server": "node start-server.js",
+    "new-block": "npx @wordpress/create-block@latest --category custom-blocks --namespace custom-blocks --no-plugin",
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "packages:update": "ncu -u",
+    "packages:install": "npm install",
+    "packages:runupdate": "npm-run-all update-packages install-packages",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "wp-now": "wp-now start"
+  }
+  ```
+
 ## Start 
 
 1. Download project
@@ -30,7 +45,6 @@ does not provide multiple blocks by default. And I started repeating myself. Thi
 ## Theme 
 
 Besides blocks I also proved theme js and css. It's localed under ```src/theme```
-
 
 ## Block category
 
