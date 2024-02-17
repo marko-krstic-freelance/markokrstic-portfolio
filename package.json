@@ -1,0 +1,42 @@
+{
+  "name": "gutenberg-multiblock-setup",
+  "version": "1.0.0",
+  "description": "Perfect setup for multiple blocks in one plugin",
+  "main": "index.js",
+  "scripts": {
+    "devserver": "npm-run-all --parallel start server",
+    "server": "browser-sync start -p 'https://biotech.local/' --files '**/*.php' 'build/*.js' 'build/*.css'",
+    "new-block": "npx @wordpress/create-block@latest --category biotech-general --namespace biotech --no-plugin",
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "update-packages": "ncu -u",
+    "install-packages": "npm install",
+    "packages-update": "npm-run-all update-packages install-packages",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "wp-now": "wp-now start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krstivoja/gutenberg-multiblock-setup.git"
+  },
+  "keywords": [
+    "gutenberg",
+    "block",
+    "multiblock",
+    "dev",
+    "setup",
+    "server",
+    "freelance"
+  ],
+  "author": "Marko Krstic @DPlugins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krstivoja/gutenberg-multiblock-setup/issues"
+  },
+  "homepage": "https://github.com/krstivoja/gutenberg-multiblock-setup#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^27.2.0",
+    "browser-sync": "^3.0.2",
+    "npm-run-all": "^4.1.5"
+  }
+}
