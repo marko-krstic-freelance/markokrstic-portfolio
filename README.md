@@ -1,4 +1,5 @@
-# gutenberg-multiblock-setup
+# Gutenberg Multiblock Setup
+
 Perfect setup for multiple blocks in one plugin
 
 <img width="1511" alt="gutenberg-multiblock-setup" src="https://github.com/krstivoja/gutenberg-multiblock-setup/assets/1234350/50a78075-92ff-4b97-9720-275edf855b02">
