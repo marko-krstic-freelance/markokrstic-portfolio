@@ -19,9 +19,10 @@
 
 // Define the root directory for the plugin
 define('MULTIBLOCK_DIR', plugin_dir_path(__FILE__));
+define('MULTIBLOCK_URL', plugin_dir_url(__FILE__));
 
-require_once MULTIBLOCK_DIR . 'inc/blockCategory.php';
-require_once MULTIBLOCK_DIR . 'inc/blockStyles.php';
-require_once MULTIBLOCK_DIR . 'inc/loadAllBlocks.php';
-require_once MULTIBLOCK_DIR . 'inc/themeScriptsStyles.php';
-require_once MULTIBLOCK_DIR . 'inc/vendorsScriptStyles.php';
+require_once MULTIBLOCK_DIR . '/inc/blockCategory.php';
+require_once MULTIBLOCK_DIR . '/inc/blockStyles.php';
+require_once MULTIBLOCK_DIR . '/inc/loadAllBlocks.php';
+require_once MULTIBLOCK_DIR . '/inc/themeScriptsStyles.php';
+require_once MULTIBLOCK_DIR . '/inc/vendorsScriptStyles.php';
