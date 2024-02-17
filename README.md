@@ -1,4 +1,4 @@
-# gutenberg-multyblock-setup
+# gutenberg-multiblock-setup
 Perfect setup for multiple blocks in one plugin
 
 ```
