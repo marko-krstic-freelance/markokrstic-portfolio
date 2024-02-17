@@ -16,5 +16,11 @@ Does not provide multiple blocks by default. This is why I decided to craete my 
 5. Develop (Run local server and watch changes)
 6. Update scripts
 
+## Start 
+
+1. Download project
+2. Run ```npm i```
+3. Aafter that you can create block, start or build blocks
+
 
    
