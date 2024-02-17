@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "description": "Perfect setup for multiple blocks in one plugin",
   "main": "index.js",
+  "files": [ "*" ],
   "scripts": {
     "devserver": "npm-run-all --parallel start server",
     "server": "browser-sync start -p 'https://biotech.local/' --files '**/*.php' 'build/*.js' 'build/*.css'",
-    "new-block": "npx @wordpress/create-block@latest --category biotech-general --namespace biotech --no-plugin",
+    "new-block": "npx @wordpress/create-block@latest --category custom-blocks --namespace custom-blocks --no-plugin",
     "start": "wp-scripts start",
     "build": "wp-scripts build",
-    "update-packages": "ncu -u",
-    "install-packages": "npm install",
-    "packages-update": "npm-run-all update-packages install-packages",
+    "packages:update": "ncu -u",
+    "packages:install": "npm install",
+    "packages:runupdate": "npm-run-all update-packages install-packages",
     "plugin-zip": "wp-scripts plugin-zip",
     "wp-now": "wp-now start"
   },
@@ -19,6 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/krstivoja/gutenberg-multiblock-setup.git"
   },
+  
   "keywords": [
     "gutenberg",
     "block",

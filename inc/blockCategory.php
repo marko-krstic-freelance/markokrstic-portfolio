@@ -2,14 +2,14 @@
 
 // Create custom blocks category
 
-function dplugins_block_category($block_categories)
+function custom_block_category($block_categories)
 {
 
 	$block_categories[] = array(
-		'slug' => 'biotech-general',
-		'title' => 'Biotech Blocks',
+		'slug' => 'custom-blocks',
+		'title' => 'Custom Blocks',
 	);
 
 	return $block_categories;
 }
-add_filter('block_categories_all', 'dplugins_block_category');
+add_filter('block_categories_all', 'custom_block_category');
