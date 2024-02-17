@@ -37,3 +37,9 @@ Update block category name under ```./inc/blockCategory.php``` and inside ```.pa
 ## Block namespace
 
 update it unde ```.package.json``` in ```"new-block": ... ```
+
+## Create new block
+
+1. Run "new-block" command. 
+2. Fill required steps in terminal
+3. Move craated folder from run under ```./src```
