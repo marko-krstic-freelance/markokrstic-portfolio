@@ -3,11 +3,11 @@ Perfect setup for multiple blocks in one plugin
 
 <img width="1511" alt="gutenberg-multiblock-setup" src="https://github.com/krstivoja/gutenberg-multiblock-setup/assets/1234350/50a78075-92ff-4b97-9720-275edf855b02">
 
-```
-npx @wordpress/create-block@latest
-```
+## Why did I created this?
 
-Does not provide multiple blocks by default. This is why I decided to craete my own setup so I do not repeat my self. 
+By the default  ```npx @wordpress/create-block@latest```
+
+does not provide multiple blocks by default. And I started repeating myself. This is why I decided to craete my own setup so I do not repeat my self. 
 
 ## Scripts: 
 
