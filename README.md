@@ -23,4 +23,6 @@ Does not provide multiple blocks by default. This is why I decided to craete my 
 3. Aafter that you can create block, start or build blocks
 
 
-   
+## Theme 
+
+Besides blocks I also proved theme js and css. It's localed under ```src/theme```
