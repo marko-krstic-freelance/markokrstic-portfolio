@@ -7,7 +7,8 @@ npx @wordpress/create-block@latest
 
 Does not provide multiple blocks by default. This is why I decided to craete my own setup so I do not repeat my self. 
 
-Scripts: 
+## Scripts: 
+
 1. Create new block
 2. Build (Production)
 3. Start (Watch changes)
