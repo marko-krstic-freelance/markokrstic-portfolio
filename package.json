@@ -9,7 +9,7 @@
   "scripts": {
     "devserver": "npm-run-all --parallel start server",
     "server": "node start-server.js",
-    "new-block": "npx @wordpress/create-block@latest --category custom-blocks --namespace custom-blocks --no-plugin",
+    "new-block": "cd src && npx @wordpress/create-block@latest --category custom-blocks --namespace custom-blocks --no-plugin",
     "start": "wp-scripts start",
     "build": "wp-scripts build",
     "packages:update": "ncu -u",
