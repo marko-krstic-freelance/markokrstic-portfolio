@@ -5,16 +5,49 @@
 	"version": "0.1.0",
 	"title": "Tax Terms no URL",
 	"category": "custom-blocks",
-	"icon": "smiley",
+	"icon": "editor-paste-text",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
-	"supports": {
-		"html": false
-	},
 	"attributes": {
 		"taxonomy": {
 			"type": "string",
 			"default": "project_role"
+		},
+		"separator": {
+			"type": "string",
+			"default": ", "
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		],
+		"anchor": true,
+		"className": true,
+		"color": {
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontStyle": true,
+			"__experimentalFontWeight": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalTextTransform": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
 		}
 	},
 	"usesContext": [

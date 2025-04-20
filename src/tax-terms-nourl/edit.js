@@ -1,25 +1,23 @@
 import { __experimentalInputControl as InputControl } from "@wordpress/components";
 import { useState, useEffect } from "react";
-import {
-  useBlockProps,
-  InspectorControls,
-  useBlockEditContext,
-} from "@wordpress/block-editor";
+import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
 import { PanelBody, Spinner } from "@wordpress/components";
-import { useSelect } from "@wordpress/data";
-import { store as coreStore } from "@wordpress/core-data";
 import apiFetch from "@wordpress/api-fetch";
 import { addQueryArgs } from "@wordpress/url";
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes, context }) {
-  const { taxonomy = "project_role" } = attributes;
+  const { taxonomy = "project_role", separator = ", " } = attributes;
   const { postId } = context;
   const [terms, setTerms] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const updateTaxonomy = (newValue) => {
     setAttributes({ taxonomy: newValue });
+  };
+
+  const updateSeparator = (newValue) => {
+    setAttributes({ separator: newValue });
   };
 
   // Fetch terms when taxonomy changes or post ID changes
@@ -45,6 +43,21 @@ export default function Edit({ attributes, setAttributes, context }) {
       });
   }, [taxonomy, postId]);
 
+  // Function to render terms in the editor
+  const renderTerms = () => {
+    if (terms.length === 0) {
+      return <p>No terms found for taxonomy: {taxonomy}</p>;
+    }
+
+    // Single term - no separator
+    if (terms.length === 1) {
+      return <div>{terms[0].name}</div>;
+    }
+
+    // Multiple terms - with separator
+    return <div>{terms.map((term) => term.name).join(separator)}</div>;
+  };
+
   return (
     <>
       <InspectorControls>
@@ -55,21 +68,15 @@ export default function Edit({ attributes, setAttributes, context }) {
             onChange={updateTaxonomy}
             help="Enter taxonomy slug (e.g. project_role, category, post_tag)"
           />
+          <InputControl
+            label="Separator"
+            value={separator}
+            onChange={updateSeparator}
+            help="Character(s) to separate multiple terms (when more than one is present)"
+          />
         </PanelBody>
       </InspectorControls>
-      <div {...useBlockProps()}>
-        {isLoading ? (
-          <Spinner />
-        ) : !terms || terms.length === 0 ? (
-          <p>No terms found for taxonomy: {taxonomy}</p>
-        ) : (
-          <div>
-            {terms.map((term) => (
-              <div key={term.id}>{term.name}</div>
-            ))}
-          </div>
-        )}
-      </div>
+      <div {...useBlockProps()}>{isLoading ? <Spinner /> : renderTerms()}</div>
     </>
   );
 }
