@@ -14,7 +14,7 @@
 	"attributes": {
 		"taxonomy": {
 			"type": "string",
-			"default": "category"
+			"default": "project_role"
 		}
 	},
 	"textdomain": "tax-terms-nourl",
