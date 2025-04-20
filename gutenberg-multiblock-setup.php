@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Plugin Name:         Gutenberg Multiblock Setup
+ * Plugin Name:         MK Portfolio - Gutenberg Multiblock Setup
  * Description:         Example block scaffolded with Create Block tool for multiblock.
  * Requires at least:   6.1
  * Requires PHP:        7.4
@@ -8,12 +9,12 @@
  * Author:              Marko Krstic @DPlugins
  * License:             GPL-2.0-or-later
  * License URI:         https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:         dplugins-multiblock-setup
+ * Text Domain:         mk-portfolio-multiblock-setup
  *
  * @package           create-block
  */
 
- if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
