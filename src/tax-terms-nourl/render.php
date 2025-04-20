@@ -4,8 +4,13 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
+// Exit if accessed directly.
+if (!defined('ABSPATH')) {
+	exit;
+}
+
 // Get the taxonomy from attributes (default to 'project_role' if not set)
-$taxonomy = isset($attributes['taxonomy']) ? sanitize_text_field($attributes['taxonomy']) : 'project_role';
+$taxonomy = isset($attributes['taxonomy']) ? $attributes['taxonomy'] : 'project_role';
 
 // Get wrapper attributes
 $wrapper_attributes = get_block_wrapper_attributes();

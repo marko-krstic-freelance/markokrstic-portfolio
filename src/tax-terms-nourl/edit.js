@@ -1,41 +1,49 @@
 import { __experimentalInputControl as InputControl } from "@wordpress/components";
 import { useState, useEffect } from "react";
-import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
+import {
+  useBlockProps,
+  InspectorControls,
+  useBlockEditContext,
+} from "@wordpress/block-editor";
 import { PanelBody, Spinner } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 import { store as coreStore } from "@wordpress/core-data";
-import { store as editorStore } from "@wordpress/editor";
+import apiFetch from "@wordpress/api-fetch";
+import { addQueryArgs } from "@wordpress/url";
 import "./editor.scss";
 
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit({ attributes, setAttributes, context }) {
   const { taxonomy = "project_role" } = attributes;
+  const { postId } = context;
+  const [terms, setTerms] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const updateTaxonomy = (newValue) => {
     setAttributes({ taxonomy: newValue });
   };
 
-  const postId = useSelect(
-    (select) => select(editorStore).getCurrentPostId(),
-    []
-  );
+  // Fetch terms when taxonomy changes or post ID changes
+  useEffect(() => {
+    if (!taxonomy || !postId) return;
 
-  const { terms, isLoading } = useSelect(
-    (select) => {
-      const { getEntityRecords } = select(coreStore);
+    setIsLoading(true);
 
-      // Don't try to fetch with an empty taxonomy
-      if (!taxonomy) return { terms: [], isLoading: false };
-
-      const query = { post: postId };
-      const taxonomyTerms = getEntityRecords("taxonomy", taxonomy, query);
-
-      return {
-        terms: taxonomyTerms,
-        isLoading: taxonomyTerms === null,
-      };
-    },
-    [taxonomy, postId]
-  );
+    apiFetch({
+      path: addQueryArgs(`/wp/v2/${taxonomy}`, {
+        post: postId,
+        per_page: -1,
+      }),
+    })
+      .then((fetchedTerms) => {
+        setTerms(Array.isArray(fetchedTerms) ? fetchedTerms : []);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching terms:", error);
+        setTerms([]);
+        setIsLoading(false);
+      });
+  }, [taxonomy, postId]);
 
   return (
     <>
