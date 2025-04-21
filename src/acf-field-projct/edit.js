@@ -32,7 +32,7 @@ import './editor.scss';
 export default function Edit() {
 	return (
 		<p { ...useBlockProps() }>
-			{ __( 'Template – hello from the editor!', 'template' ) }
+			{ __( 'ACF Fields Project CTP – hello from the editor!', 'acf-field-projct' ) }
 		</p>
 	);
 }

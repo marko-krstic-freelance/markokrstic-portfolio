@@ -21,5 +21,5 @@
  */
  
 /* eslint-disable no-console */
-console.log("Hello World! (from custom-blocks-template block)");
+console.log("Hello World! (from custom-blocks-acf-field-projct block)");
 /* eslint-enable no-console */

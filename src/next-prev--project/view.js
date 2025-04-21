@@ -21,5 +21,5 @@
  */
  
 /* eslint-disable no-console */
-console.log("Hello World! (from custom-blocks-theme block)");
+console.log("Hello World! (from custom-blocks-next-prev--project block)");
 /* eslint-enable no-console */
